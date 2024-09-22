@@ -10,10 +10,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-define('ControlPanelPrefix', '/control-panel');
-
 /* Control Panel */
-Route::prefix(ControlPanelPrefix)
+Route::prefix(config('control-panel.router.prefix'))
     ->name('cp.')
     ->middleware('verified')
     ->group(function (): void {
@@ -57,7 +55,7 @@ Route::prefix(ControlPanelPrefix)
 
     });
 
-Route::prefix(ControlPanelPrefix)->group(function (): void {
+Route::prefix(config('control-panel.router.prefix'))->group(function (): void {
     /* User E-Mail verification */
     Route::prefix('/user-verification')
         ->name('verification.')
@@ -91,10 +89,10 @@ Route::prefix(ControlPanelPrefix)->group(function (): void {
             Route::post('/update', 'update')->name('update');
             
         });
-});
 
-/* Handle non-existing Control Panel routes by redirecting to the closest existing route or dashboard */
-Route::get('/{foo?}')->prefix(ControlPanelPrefix)->where(['foo' => '.*'])->middleware('cp.redirect')->name('cp.');
+    /* Fallback Control Panel route - Redirect to the closest existing route or dashboard */
+    Route::get('/{foo?}')->where(['foo' => '.*'])->middleware('cp.redirect')->name('cp.');
+});
 
 /* Frontpage - Handles any public page URL */
 Route::get('/{permalink?}', [PageController::class, 'show'])->where(['permalink' => '.*'])->name('pages.show');
