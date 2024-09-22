@@ -10,8 +10,10 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+$controlPanelPrefix = config('cp.router.prefix', '/control-panel');
+
 /* Control Panel */
-Route::prefix(config('cp.router.prefix'))
+Route::prefix($controlPanelPrefix)
     ->name('cp.')
     ->middleware('verified')
     ->group(function (): void {
@@ -55,7 +57,7 @@ Route::prefix(config('cp.router.prefix'))
 
     });
 
-Route::prefix(config('cp.router.prefix'))->group(function (): void {
+Route::prefix($controlPanelPrefix)->group(function (): void {
     /* User E-Mail verification */
     Route::prefix('/user-verification')
         ->name('verification.')
@@ -96,3 +98,5 @@ Route::prefix(config('cp.router.prefix'))->group(function (): void {
 
 /* Frontpage - Handles any public page URL */
 Route::get('/{permalink?}', [PageController::class, 'show'])->where(['permalink' => '.*'])->name('pages.show');
+
+unset($controlPanelPrefix);
