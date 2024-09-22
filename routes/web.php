@@ -11,7 +11,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /* Control Panel */
-Route::prefix(config('control-panel.router.prefix'))
+Route::prefix(config('cp.router.prefix'))
     ->name('cp.')
     ->middleware('verified')
     ->group(function (): void {
@@ -55,7 +55,7 @@ Route::prefix(config('control-panel.router.prefix'))
 
     });
 
-Route::prefix(config('control-panel.router.prefix'))->group(function (): void {
+Route::prefix(config('cp.router.prefix'))->group(function (): void {
     /* User E-Mail verification */
     Route::prefix('/user-verification')
         ->name('verification.')
