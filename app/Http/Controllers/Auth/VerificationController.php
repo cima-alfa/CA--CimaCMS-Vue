@@ -59,6 +59,6 @@ class VerificationController extends Controller implements HasMiddleware
     {
         $request->fulfill();
         // Redirect to Front or CMS user dashboard
-        return redirect()->route('cp.dashboard');
+        return redirect()->route('cp.dashboard.index');
     }
 }

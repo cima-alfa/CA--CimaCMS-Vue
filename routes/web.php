@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 $controlPanelPrefix = config('cp.router.prefix', '/control-panel');
@@ -43,11 +44,25 @@ Route::prefix($controlPanelPrefix)
         /* Control Panel Dashboard and Rescources */
         Route::middleware('auth')->group(function (): void {
 
-            Route::controller(DashboardController::class)->group(function (): void {
+            Route::name('dashboard.')->controller(DashboardController::class)->group(function (): void {
 
-                Route::get('/dashboard', 'show')->name('dashboard');
+                Route::get('/dashboard', 'index')->name('index');
 
             });
+
+            Route::prefix('/profile')
+                ->name('userProfile.')
+                ->controller(UserProfileController::class)
+                ->withoutMiddleware('verified')
+                ->group(function (): void {
+
+                    Route::get('/', 'edit')->name('edit');
+
+                    Route::post('/', 'update')->name('update');
+
+                    Route::delete('/', 'destroy')->name('destroy');
+
+                });
 
             Route::resource('users', UserController::class);
 

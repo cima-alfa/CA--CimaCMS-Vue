@@ -41,7 +41,7 @@ class ControlPanelRedirect
         $routeCurrent = Route::current();
         $uriRegex = '/\/(?=[^\/]*$)/';
         $uri = ($foo = $routeCurrent->parameter('foo')) ? preg_split($uriRegex, $foo) : [];
-        $redirect = 'cp.dashboard';
+        $redirect = 'cp.dashboard.index';
         
         if (count($uri) <= 1) {
             return redirect()->route($redirect);

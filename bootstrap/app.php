@@ -21,7 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
             return route('cp.auth.login');
         });
-        $middleware->redirectUsersTo(fn () => route('cp.dashboard'));
+        $middleware->redirectUsersTo(fn () => route('cp.dashboard.index'));
 
         $middleware->web(append: [
             HandleInertiaRequests::class,
