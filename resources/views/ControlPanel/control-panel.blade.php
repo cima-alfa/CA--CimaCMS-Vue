@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="[color-scheme:dark_light]">
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     @routes
 </head>
 
-<body>
+<body class="bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
     @inertia
 </body>
 
