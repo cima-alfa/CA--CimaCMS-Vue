@@ -1,26 +1,20 @@
-<script setup>
-defineProps({
-    is: {
-        type: String,
-        default: "button",
-    },
-    mode: {
-        // type: {
-        //     primary: String,
-        //     neutral: String,
-        //     accent: String,
-        //     actionPrimary: String,
-        //     actionSecondary: String,
-        //     impartial: String,
-        //     info: String,
-        //     success: String,
-        //     warning: String,
-        //     alert: String,
-        // },
-        type: String,
-        default: "action-primary",
-    },
-});
+<script setup lang="ts">
+interface Props {
+    is: String;
+    mode:
+        | "primary"
+        | "neutral"
+        | "accent"
+        | "action-primary"
+        | "action-secondary"
+        | "impartial"
+        | "info"
+        | "success"
+        | "warning"
+        | "alert";
+}
+
+const { is = "button", mode = "action-primary" } = defineProps<Props>();
 
 const modes = {
     primary:

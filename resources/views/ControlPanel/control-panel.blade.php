@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 
-    @vite('resources/js/control-panel/app.js')
+    @vite('resources/js/control-panel/app.ts')
     @inertiaHead
     @routes
 </head>
