@@ -9,9 +9,9 @@ use Inertia\Response as InertiaView;
 class DashboardController extends Controller
 {
     /**
-     * Display the specified resource.
+     * Display a listing of the resource.
      */
-    public function show(): InertiaView
+    public function index(): InertiaView
     {
         return inertia('CP/Dashboard');
     }
