@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
-    is: String;
-    mode:
+    is?: String;
+    mode?:
         | "primary"
         | "neutral"
         | "accent"
