@@ -16,7 +16,7 @@ export default [
         },
     },
     pluginJs.configs.recommended,
-    ...pluginVue.configs["flat/essential"],
+    ...pluginVue.configs["vue3-essential"],
     {
         files: ["**/views/**/Pages/**/*.vue", "**/views/**/Layouts/**/*.vue"],
         rules: {

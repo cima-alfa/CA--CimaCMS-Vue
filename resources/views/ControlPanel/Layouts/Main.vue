@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import BaseButton from "../Components/BaseButton.vue";
 import BaseLogo from "../Components/BaseLogo.vue";
 import BasePanel from "../Components/BasePanel.vue";
