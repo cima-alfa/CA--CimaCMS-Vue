@@ -18,7 +18,7 @@ const modes: StyleModes = {
     mono: "text-black-100 dark:text-white-100",
     primary: "text-primary-800 dark:text-primary-200",
     neutral: "text-neutral-800 dark:text-neutral-200",
-    accent: "text-neutral-800 dark:text-neutral-200",
+    accent: "text-accent-800 dark:text-accent-200",
     actionPrimary: "text-action-primary-800 dark:text-action-primary-200",
     actionSecondary: "text-action-secondary-800 dark:text-action-secondary-200",
     impartial: "text-impartial-800 dark:text-impartial-200",
