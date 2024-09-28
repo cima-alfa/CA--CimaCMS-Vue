@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 /* eslint "vue/multi-word-component-names": "off" */
 
 import { Link } from "@inertiajs/vue3";
