@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { useForm } from "@inertiajs/vue3";
 
-import Auth from "../../../Layouts/Auth.vue";
-import InputField from "../../../Components/Forms/InputField.vue";
-import BaseButton from "../../../Components/BaseButton.vue";
-import FlashMessages from "../../../Components/FlashMessages.vue";
+import Auth from "@control-panel/views/Layouts/Auth.vue";
+import InputField from "@control-panel/views/Components/Forms/InputField.vue";
+import BaseButton from "@control-panel/views/Components/BaseButton.vue";
+import FlashMessages from "@control-panel/views/Components/FlashMessages.vue";
 
 defineOptions({
     layout: Auth,
@@ -12,12 +12,24 @@ defineOptions({
 });
 
 const props = defineProps({
-    email: String,
-    token: String,
+    email: {
+        type: String,
+        required: true,
+    },
+    token: {
+        type: String,
+        required: true,
+    },
     resetStatus: String,
 });
 
-const passwordResetForm = useForm({
+const passwordResetForm = useForm<{
+    email: String;
+    password: String;
+    password_confirmation: String;
+    token: String;
+    resetError?: String;
+}>({
     email: props.email,
     password: "",
     password_confirmation: "",
@@ -44,13 +56,13 @@ const submitPasswordResetForm = () => {
         <form @submit.prevent="submitPasswordResetForm" novalidate>
             <FlashMessages
                 :messages="resetStatus"
-                type="success"
+                mode="success"
                 class="mb-5"
             />
 
             <FlashMessages
                 :messages="passwordResetForm.errors.resetError"
-                type="alert"
+                mode="alert"
                 class="mb-5"
             />
 

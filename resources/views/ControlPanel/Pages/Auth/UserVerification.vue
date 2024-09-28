@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { useForm } from "@inertiajs/vue3";
 import { ref } from "vue";
 
-import Auth from "../../Layouts/Auth.vue";
-import BaseButton from "../../Components/BaseButton.vue";
-import FlashMessages from "../../Components/FlashMessages.vue";
+import Auth from "@control-panel/views/Layouts/Auth.vue";
+import BaseButton from "@control-panel/views/Components/BaseButton.vue";
+import FlashMessages from "@control-panel/views/Components/FlashMessages.vue";
 
 defineOptions({
     layout: Auth,
@@ -55,7 +55,7 @@ const submitVerificationForm = () => {
     <div class="pt-5">
         <FlashMessages
             :messages="verificationStatus"
-            type="success"
+            mode="success"
             class="mb-5"
         />
 

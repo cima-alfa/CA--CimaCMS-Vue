@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { nanoid } from "nanoid";
 
 import slugify from "slugify";
@@ -12,7 +12,7 @@ defineOptions({
 const props = defineProps({
     label: {
         type: String,
-        required: true,
+        requialert: true,
     },
     message: String,
     error: Boolean,
@@ -32,7 +32,7 @@ const id = nanoid(10) + "-" + name;
         class="inline-grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-1 cursor-pointer"
     >
         <span
-            class="relative w-10 h-5 rounded-full outline outline-1 outline-offset-0 outline-slate-400 bg-slate-300 dark:outline-slate-500 dark:bg-slate-600 [&[data-error]]:outline-red-700 dark:[&[data-error]]:outline-red-300"
+            class="relative w-10 h-5 rounded-full outline outline-1 outline-offset-0 outline-neutral-400 bg-neutral-300 dark:outline-neutral-500 dark:bg-neutral-600 focus-within:outline-action-primary-600 focus-within:outline-2 dark:focus-within:outline-action-primary-400 [&[data-error]]:outline-2 [&[data-error]]:outline-alert-700 dark:[&[data-error]]:outline-alert-300"
             :data-error="message || error ? true : null"
         >
             <input
@@ -44,7 +44,7 @@ const id = nanoid(10) + "-" + name;
                 class="peer appearance-none sr-only"
             />
             <div
-                class="absolute top-[0.125rem] left-[0.125rem] w-4 h-4 bg-red-600 dark:bg-red-400 rounded-full transition-[background-color,transform] peer-checked:translate-x-[calc(100%_+_4px)] peer-checked:bg-green-700 peer-checked:dark:bg-green-300"
+                class="absolute top-[0.125rem] left-[0.125rem] w-4 h-4 bg-alert-600 dark:bg-alert-400 rounded-full transition-[background-color,transform] peer-checked:translate-x-[calc(100%_+_4px)] peer-checked:bg-success-700 peer-checked:dark:bg-success-300"
             ></div>
         </span>
 
@@ -52,7 +52,7 @@ const id = nanoid(10) + "-" + name;
 
         <div
             v-if="message"
-            class="col-span-2 text-sm font-bold text-pretty mt-2 text-red-700 dark:text-red-300"
+            class="col-span-2 text-sm font-bold text-pretty mt-2 text-alert-700 dark:text-alert-300"
             data-error
         >
             {{ message }}

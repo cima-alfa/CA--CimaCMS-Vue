@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { nanoid } from "nanoid";
 
 import slugify from "slugify";
@@ -36,7 +36,7 @@ const id = nanoid(10) + "-" + name;
         :id="id"
         :type="type"
         :name="name"
-        class="w-full rounded outline outline-1 outline-offset-0 outline-slate-400 bg-slate-300 px-3 py-2 dark:outline-slate-500 dark:bg-slate-600 focus:outline-sky-500 focus:outline-2 transition-colors [&[data-error]]:outline-red-700 dark:[&[data-error]]:outline-red-300"
+        class="w-full rounded outline outline-1 outline-offset-0 outline-impartial-400 bg-impartial-300 px-3 py-2 dark:outline-impartial-500 dark:bg-impartial-600 focus:outline-action-primary-600 dark:focus:outline-action-primary-400 focus:outline-2 transition-colors [&[data-error]]:outline-alert-700 dark:[&[data-error]]:outline-alert-300"
         v-model="model"
         v-bind="$attrs"
         :data-error="message || error ? true : null"
@@ -44,7 +44,7 @@ const id = nanoid(10) + "-" + name;
 
     <div
         v-if="message"
-        class="text-sm font-bold text-pretty mt-2 text-red-700 dark:text-red-300"
+        class="text-sm font-bold text-pretty mt-2 text-alert-700 dark:text-alert-300"
         data-error
     >
         {{ message }}

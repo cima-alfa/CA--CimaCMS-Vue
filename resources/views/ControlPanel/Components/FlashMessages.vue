@@ -1,23 +1,22 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
+import InfoBox from "@control-panel/views/Components/InfoBox.vue";
+import type { StyleMode } from "@control-panel/js/types";
 
-import InfoBox from "./InfoBox.vue";
+interface Props {
+    messages: String[] | Object | String;
+    mode?: StyleMode;
+}
 
-const props = defineProps({
-    type: {
-        type: String,
-        default: "info",
-    },
-    messages: [Array, Object, String],
-});
+const { messages: _messages, mode } = defineProps<Props>();
 
 const messages = computed(() =>
-    typeof props.messages === "string" ? [props.messages] : props.messages
+    typeof _messages === "string" ? [_messages] : _messages
 );
 </script>
 
 <template>
-    <InfoBox v-if="messages" :type="type" class="font-semibold">
+    <InfoBox v-if="messages" :mode="mode" class="font-semibold">
         <p v-for="(message, i) in messages" :key="i">{{ message }}</p>
     </InfoBox>
 </template>

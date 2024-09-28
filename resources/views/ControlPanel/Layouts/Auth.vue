@@ -1,22 +1,20 @@
-<script setup></script>
+<script setup lang="ts">
+import LogoLink from "@control-panel/views/Components/LogoLink.vue";
+</script>
 
 <template>
     <div
-        class="absolute left-0 top-0 grid min-h-full w-full place-items-center bg-zinc-300 p-5 dark:bg-zinc-900"
+        class="absolute left-0 top-0 grid min-h-full w-full place-items-center bg-neutral-300 p-5 dark:bg-neutral-900"
     >
         <div
-            class="grid w-full max-w-lg rounded-lg bg-zinc-200 px-2 shadow dark:bg-zinc-800"
+            class="grid w-full max-w-lg rounded-lg bg-neutral-200 px-2 shadow dark:bg-neutral-800"
         >
             <header class="px-3 py-5 text-center">
-                <span class="font-bold text-balance text-3xl">
-                    Control<span class="text-sky-600 dark:text-sky-400"
-                        >Panel</span
-                    >
-                </span>
+                <LogoLink />
             </header>
 
             <main
-                class="border-y border-zinc-300 px-3 py-5 dark:border-zinc-900"
+                class="border-y border-neutral-300 px-3 py-5 dark:border-neutral-900"
             >
                 <slot />
             </main>

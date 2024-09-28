@@ -1,12 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import { useForm } from "@inertiajs/vue3";
 
-import Auth from "../../Layouts/Auth.vue";
-import TextLink from "../../Components/TextLink.vue";
-import InputField from "../../Components/Forms/InputField.vue";
-import SwitchBox from "../../Components/Forms/SwitchBox.vue";
-import BaseButton from "../../Components/BaseButton.vue";
-import FlashMessages from "../../Components/FlashMessages.vue";
+import Auth from "@control-panel/views/Layouts/Auth.vue";
+import TextLink from "@control-panel/views/Components/TextLink.vue";
+import InputField from "@control-panel/views/Components/Forms/InputField.vue";
+import SwitchBox from "@control-panel/views/Components/Forms/SwitchBox.vue";
+import BaseButton from "@control-panel/views/Components/BaseButton.vue";
+import FlashMessages from "@control-panel/views/Components/FlashMessages.vue";
 
 defineOptions({
     layout: Auth,
@@ -17,7 +17,12 @@ defineProps({
     resetStatus: String,
 });
 
-const loginForm = useForm({
+const loginForm = useForm<{
+    login: String;
+    password: String;
+    remember: String | Boolean | null;
+    authError?: String;
+}>({
     login: "",
     password: "",
     remember: null,
@@ -41,13 +46,13 @@ const submitLoginForm = () => {
         <form @submit.prevent="submitLoginForm" novalidate>
             <FlashMessages
                 :messages="resetStatus"
-                type="success"
+                mode="success"
                 class="mb-5"
             />
 
             <FlashMessages
                 :messages="loginForm.errors.authError"
-                type="alert"
+                mode="alert"
                 class="mb-5"
             />
 
@@ -72,7 +77,7 @@ const submitLoginForm = () => {
                     v-model="loginForm.password"
                 />
                 <div class="mt-2 text-sm">
-                    <TextLink :href="route('password.request')">
+                    <TextLink :href="route('password.request')" mode="mono">
                         Forgot password?
                     </TextLink>
                 </div>
@@ -89,7 +94,7 @@ const submitLoginForm = () => {
     </div>
 
     <div class="pt-5 text-center text-sm sm:text-right">
-        <TextLink :href="route('cp.auth.create')">
+        <TextLink :href="route('cp.auth.create')" mode="mono">
             <span class="whitespace-nowrap">Don't have an account yet?</span>
             <span class="whitespace-nowrap">Register here!</span>
         </TextLink>

@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { useForm } from "@inertiajs/vue3";
 
-import Auth from "../../../Layouts/Auth.vue";
-import InputField from "../../../Components/Forms/InputField.vue";
-import BaseButton from "../../../Components/BaseButton.vue";
-import FlashMessages from "../../../Components/FlashMessages.vue";
+import Auth from "@control-panel/views/Layouts/Auth.vue";
+import InputField from "@control-panel/views/Components/Forms/InputField.vue";
+import BaseButton from "@control-panel/views/Components/BaseButton.vue";
+import FlashMessages from "@control-panel/views/Components/FlashMessages.vue";
 
 defineOptions({
     layout: Auth,
@@ -40,7 +40,7 @@ const submitPasswordResetRequestForm = () => {
         <form @submit.prevent="submitPasswordResetRequestForm" novalidate>
             <FlashMessages
                 :messages="notificationStatus"
-                type="success"
+                mode="success"
                 class="mb-5"
             />
 

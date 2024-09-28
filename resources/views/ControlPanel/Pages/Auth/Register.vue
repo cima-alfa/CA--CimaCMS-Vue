@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { useForm } from "@inertiajs/vue3";
 
-import Auth from "../../Layouts/Auth.vue";
-import InputField from "../../Components/Forms/InputField.vue";
-import TextLink from "../../Components/TextLink.vue";
-import BaseButton from "../../Components/BaseButton.vue";
+import Auth from "@control-panel/views/Layouts/Auth.vue";
+import InputField from "@control-panel/views/Components/Forms/InputField.vue";
+import TextLink from "@control-panel/views/Components/TextLink.vue";
+import BaseButton from "@control-panel/views/Components/BaseButton.vue";
 
 defineOptions({
     layout: Auth,
@@ -86,7 +86,7 @@ const submitRegisterForm = () => {
     </div>
 
     <div class="pt-5 text-center text-sm sm:text-right">
-        <TextLink :href="route('cp.auth.show')">
+        <TextLink :href="route('cp.auth.show')" mode="action-secondary">
             <span class="whitespace-nowrap">Already have an account?</span>
             <span class="whitespace-nowrap">Sign in here!</span>
         </TextLink>
