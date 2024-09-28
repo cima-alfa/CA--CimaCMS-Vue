@@ -1,24 +1,26 @@
 /* eslint "vue/multi-word-component-names": "off", "vue/no-reserved-component-names": "off" */
-
 import { createApp, type DefineComponent, h } from "vue";
 import { createInertiaApp, Head } from "@inertiajs/vue3";
-import {
-    route,
-    type Config,
-    type RouteParams,
-} from "../../../vendor/tightenco/ziggy/src/js";
+import { route as routeFn, type Config, type RouteParams } from "@ziggy/ziggy";
 
-import Link from "../../views/Vue/Components/Link.vue";
-import ControlPanelMainLayout from "../../views/ControlPanel/Layouts/Main.vue";
-// import FrontMainLayout from "../../views/Front/Layouts/Main.vue";
+import Link from "@app/views/Components/Link.vue";
+import ControlPanelMainLayout from "@control-panel/views/Layouts/Main.vue";
+// import FrontMainLayout from "@front/views/Layouts/Main.vue";
 
 declare global {
     const FrontMainLayout: typeof ControlPanelMainLayout;
+    const $route: typeof routeFn;
+    const route: typeof routeFn;
+    const $permalink: typeof routeFn;
+    const permalink: typeof routeFn;
 }
 
 declare module "vue" {
     interface ComponentCustomProperties {
-        route: typeof route;
+        $route: typeof routeFn;
+        route: typeof routeFn;
+        $permalink: typeof routeFn;
+        permalink: typeof routeFn;
     }
 }
 
@@ -71,7 +73,7 @@ createInertiaApp({
             config: Config
         ) => {
             try {
-                return (link = route(name, params, absolute, config)) === ""
+                return (link = routeFn(name, params, absolute, config)) === ""
                     ? "/"
                     : link;
             } catch (e) {
