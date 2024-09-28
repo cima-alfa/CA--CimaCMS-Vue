@@ -27,8 +27,7 @@ const id = nanoid(10) + "-" + name;
 </script>
 
 <template>
-    <label
-        :for="id"
+    <div
         class="inline-grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-1 cursor-pointer"
     >
         <span
@@ -48,7 +47,7 @@ const id = nanoid(10) + "-" + name;
             ></div>
         </span>
 
-        <span class="select-none leading-none">{{ label }}</span>
+        <label :for="id" class="select-none leading-none">{{ label }}</label>
 
         <div
             v-if="message"
@@ -57,5 +56,5 @@ const id = nanoid(10) + "-" + name;
         >
             {{ message }}
         </div>
-    </label>
+    </div>
 </template>
