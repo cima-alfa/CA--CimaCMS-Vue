@@ -1,2 +1,2 @@
-import "../app/axios";
-import "../app/bootstrap";
+import "@app/js/axios";
+import "@app/js/bootstrap";

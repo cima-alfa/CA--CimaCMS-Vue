@@ -1,3 +1,3 @@
-import "../../css/control-panel/app.css";
-import "../app/axios";
-import "../app/bootstrap";
+import "@control-panel/css/app.css";
+import "@app/js/axios";
+import "@app/js/bootstrap";
