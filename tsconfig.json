@@ -6,7 +6,16 @@
         "noImplicitAny": false,
         "types": ["vite/client"],
         "paths": {
-            "@/*": ["resources/*"]
+            "@app/css/*": ["resources/css/app/*"],
+            "@app/js/*": ["resources/js/app/*"],
+            "@app/views/*": ["resources/views/App/*"],
+            "@control-panel/css/*": ["resources/css/control-panel/*"],
+            "@control-panel/js/*": ["resources/js/control-panel/*"],
+            "@control-panel/views/*": ["resources/views/ControlPanel/*"],
+            "@front/css/*": ["resources/css/front/*"],
+            "@front/js/*": ["resources/js/front/*"],
+            "@front/views/*": ["resources/views/Front/*"],
+            "@ziggy/*": ["vendor/tightenco/*"]
         },
         "baseUrl": "."
     },

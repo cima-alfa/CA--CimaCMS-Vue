@@ -30,7 +30,25 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            "@": path.resolve(__dirname, "./resources/"),
+            "@app/css": path.resolve(__dirname, "./resources/css/app/"),
+            "@app/js": path.resolve(__dirname, "./resources/js/app/"),
+            "@app/views": path.resolve(__dirname, "./resources/views/App/"),
+            "@control-panel/css": path.resolve(
+                __dirname,
+                "./resources/css/control-panel/"
+            ),
+            "@control-panel/js": path.resolve(
+                __dirname,
+                "./resources/js/control-panel/"
+            ),
+            "@control-panel/views": path.resolve(
+                __dirname,
+                "./resources/views/ControlPanel/"
+            ),
+            "@front/css": path.resolve(__dirname, "./resources/css/front/"),
+            "@front/js": path.resolve(__dirname, "./resources/js/front/"),
+            "@front/views": path.resolve(__dirname, "./resources/views/Front/"),
+            "@ziggy": path.resolve(__dirname, "./vendor/tightenco/"),
         },
     },
 });
