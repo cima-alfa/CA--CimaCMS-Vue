@@ -1,0 +1,36 @@
+import { defineConfig } from "vite";
+import path from "path";
+import laravel from "laravel-vite-plugin";
+import vue from "@vitejs/plugin-vue";
+
+export default defineConfig({
+    // Uncomment if your server uses https:
+    // server: {
+    //     https: {
+    //         key: "./path/to/ssl.key",
+    //         cert: "./path/to/ssl.crt",
+    //     },
+    //     host: "host.example",
+    // },
+    plugins: [
+        vue({
+            template: {
+                compilerOptions: {
+                    whitespace: "preserve",
+                },
+            },
+        }),
+        laravel({
+            input: [
+                "resources/js/control-panel/app.ts",
+                "resources/js/front/app.ts",
+            ],
+            refresh: true,
+        }),
+    ],
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./resources/"),
+        },
+    },
+});
