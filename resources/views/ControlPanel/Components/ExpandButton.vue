@@ -31,15 +31,15 @@ const handleClick = (event: MouseEvent) => {
         `click.expandButtonTargetHandler.${controls}`
     );
 
-    const controlledElement = document.querySelector(`#${controls}`);
+    const targetElement = document.querySelector(`#${controls}`);
 
-    const toggleControlledElement = () => {
-        controlledElement.toggleAttribute("hidden");
+    const toggleTargetElement = () => {
+        targetElement.toggleAttribute("hidden");
 
-        ariaExpanded.value = controlledElement.getAttribute("hidden") === null;
+        ariaExpanded.value = targetElement.getAttribute("hidden") === null;
     };
 
-    toggleControlledElement();
+    toggleTargetElement();
 
     if (ariaExpanded.value === false) {
         return;
@@ -54,7 +54,7 @@ const handleClick = (event: MouseEvent) => {
             if (
                 (event.target as HTMLElement).parentElement.closest(
                     `#${controls}`
-                ) === controlledElement ||
+                ) === targetElement ||
                 (event.target as HTMLElement).closest(
                     "[data-expand-button]"
                 ) === button
@@ -62,7 +62,7 @@ const handleClick = (event: MouseEvent) => {
                 return;
             }
 
-            toggleControlledElement();
+            toggleTargetElement();
 
             eventListener.remove(
                 document,
