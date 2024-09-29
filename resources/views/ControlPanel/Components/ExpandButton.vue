@@ -3,6 +3,7 @@ import { ref } from "vue";
 import type { StyleMode } from "@control-panel/js/types";
 
 import BaseButton from "@control-panel/views/Components/BaseButton.vue";
+import eventListener from "@app/js/events";
 
 interface Props {
     is?: "button" | typeof BaseButton;
@@ -20,14 +21,55 @@ const {
 
 const ariaExpanded = ref(expanded);
 
-const handleClick = () => {
-    const controledElement = document.querySelector(`#${controls}`);
+const handleClick = (event: MouseEvent) => {
+    const button = (event.target as HTMLElement).closest(
+        "[data-expand-button]"
+    );
 
-    controledElement.toggleAttribute("hidden");
+    eventListener.remove(
+        document,
+        `click.expandButtonTargetHandler.${controls}`
+    );
 
-    ariaExpanded.value = controledElement.getAttribute("hidden") === null;
+    const controlledElement = document.querySelector(`#${controls}`);
 
-    //document.addEventListener("click", () => {});
+    const toggleControlledElement = () => {
+        controlledElement.toggleAttribute("hidden");
+
+        ariaExpanded.value = controlledElement.getAttribute("hidden") === null;
+    };
+
+    toggleControlledElement();
+
+    if (ariaExpanded.value === false) {
+        return;
+    }
+
+    eventListener.add(
+        document,
+        `click.expandButtonTargetHandler.${controls}`,
+        (event: MouseEvent) => {
+            event.preventDefault();
+
+            if (
+                (event.target as HTMLElement).parentElement.closest(
+                    `#${controls}`
+                ) === controlledElement ||
+                (event.target as HTMLElement).closest(
+                    "[data-expand-button]"
+                ) === button
+            ) {
+                return;
+            }
+
+            toggleControlledElement();
+
+            eventListener.remove(
+                document,
+                `click.expandButtonTargetHandler.${controls}`
+            );
+        }
+    );
 };
 </script>
 
@@ -38,6 +80,7 @@ const handleClick = () => {
         :aria-expanded="ariaExpanded"
         :aria-controls="controls"
         @click.prevent="handleClick"
+        data-expand-button
     >
         <slot />
     </component>
