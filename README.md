@@ -2,14 +2,15 @@
 
 ## After cloning this repo, do the following steps:
 
-1. `composer install`
-2. `npm install`
-3. Duplicate the `.env.example` file and rename it to `.env`
-4. Setup database connection
-5. Run `php artisan migrate`
-6. Run `php artisan key:generate`
-7. Run `php artisan serve`
-8. Run `npm run dev`
+1. Duplicate the `.env.example` file and rename it to `.env`
+2. Setup database connection
+3. Duplicate the `vite.config.ts.example` file and rename it to `vite.config.ts`
+4. `composer install`
+5. `npm install`
+6. Run `php artisan migrate`
+7. Run `php artisan key:generate`
+8. Run `php artisan serve`
+9. Run `npm run dev`
 
 Todo:
 
@@ -17,8 +18,7 @@ Todo:
     - Otherwise allow to see their profile in the control panel
 2. VerificationController.php
 
-
-    -   `update()` -> Redirect to Front or CMS user dashboard (See number 1)
+    - `update()` -> Redirect to Front or CMS user dashboard (See number 1)
 
 3. app.php
     - Redirect guest to login page (CMS or Front if enabled in config)
