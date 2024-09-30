@@ -6,11 +6,11 @@
 2. Setup database connection
 3. Duplicate the `vite.config.ts.example` file and rename it to `vite.config.ts`
 4. `composer install`
-5. `npm install`
+5. `pnpm install`
 6. Run `php artisan migrate`
 7. Run `php artisan key:generate`
 8. Run `php artisan serve`
-9. Run `npm run dev`
+9. Run `pnpm dev`
 
 Todo:
 
