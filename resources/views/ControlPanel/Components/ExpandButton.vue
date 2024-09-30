@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import type { StyleMode } from "@control-panel/js/types";
+import type { StyleMode } from "@control-panel/js/definitions";
 
 import BaseButton from "@control-panel/views/Components/BaseButton.vue";
 import eventListener from "@app/js/events";

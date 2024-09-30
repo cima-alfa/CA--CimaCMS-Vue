@@ -3,7 +3,7 @@ import {
     StyleModeName,
     type StyleMode,
     type StyleModes,
-} from "@control-panel/js/types";
+} from "@control-panel/js/definitions";
 
 interface Props {
     is?: String;

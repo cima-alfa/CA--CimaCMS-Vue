@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import type { StyleMode, StyleModes } from "@control-panel/js/types";
-import { StyleModeName } from "@control-panel/js/types";
+import {
+    StyleModeName,
+    type StyleMode,
+    type StyleModes,
+} from "@control-panel/js/definitions";
 
 interface Props {
     is?: String;
