@@ -45,7 +45,7 @@ const id = nanoid(10) + "-" + name;
             :data-error="message || error ? true : null"
         >
             <div
-                class="absolute top-[0.125rem] left-[0.125rem] w-4 h-4 bg-alert-600 dark:bg-alert-400 rounded-full transition-[background-color,transform] [[type='checkbox']:checked+label_&]:translate-x-[calc(100%_+_4px)] [[type='checkbox']:checked+label_&]:bg-success-700 [[type='checkbox']:checked+label_&]:dark:bg-success-300"
+                class="absolute top-[0.125rem] left-[0.125rem] w-4 h-4 bg-alert-600 dark:bg-alert-400 rounded-full transition-[background-color,transform] [[type='checkbox']:checked+label_&]:translate-x-[calc(100%_+_(0.125rem*2))] [[type='checkbox']:checked+label_&]:bg-success-700 [[type='checkbox']:checked+label_&]:dark:bg-success-300"
             ></div>
         </span>
 
