@@ -3,7 +3,7 @@ import {
     StyleModeName,
     type StyleMode,
     type StyleModes,
-} from "@control-panel/js/types";
+} from "@control-panel/js/definitions";
 
 interface Props {
     mode?: StyleMode;
@@ -37,7 +37,7 @@ const modes: StyleModes = {
 
 <template>
     <div
-        class="border rounded px-3 py-[6px] shadow-[inset_0_0_2px_1px_hsl(0,0%,0%,0.2)]"
+        class="border rounded px-3 py-[0.375rem] shadow-[inset_0_0_2px_1px_hsl(0,0%,0%,0.2)]"
         :class="{
             [modes.white]: mode == StyleModeName.white,
             [modes.black]: mode == StyleModeName.black,
